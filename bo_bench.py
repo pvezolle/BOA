@@ -416,6 +416,8 @@ class bo_bench:
     skopt_domain = self.skopt_domain
     if sampler ==  "gp":
        opt = gp_minimize(objective_skopt,skopt_domain,n_calls=ntrials)
+       # defaul paremeter
+       #gp_minimize(func, dimensions, base_estimator=None, n_calls=100, n_random_starts=None, n_initial_points=10, initial_point_generator='random', acq_func='gp_hedge', acq_optimizer='auto', x0=None, y0=None, random_state=None, verbose=False, callback=None, n_points=10000, n_restarts_optimizer=5, xi=0.01, kappa=1.96, noise='gaussian', n_jobs=1, model_queue_size=None)
     if sampler ==  "random":
        opt = dummy_minimize(objective_skopt,skopt_domain,n_calls=ntrials)
     if sampler ==  "forest":
@@ -918,7 +920,7 @@ if __name__ == '__main__':
 
  #===============================================================================
  # camelback function
- domainc=[-2.,2.,1]
+ domainc=[-2.,2.,2]
  fsolutionc=-1.0316
  def obj_funcc(x):
    """

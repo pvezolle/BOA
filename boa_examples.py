@@ -43,10 +43,10 @@ def obj_funcs(x):
    return y
 
 # Euclidian distance in a hypercube benchmark
-size0=1600.
-size1=4800.
-#size0=-1.
-#size1=1.
+#size0=1600.
+#size1=4800.
+size0=-1.
+size1=1.
 Ndimh=6
 domainh=[size0,size1,Ndimh]
 fsolutionh=-1*sqrt(Ndimh*(size1-size0)*(size1-size0))
@@ -63,7 +63,7 @@ def obj_funch(x):
    return y
 
 # camelback function
-domainc=[-2.,2.,1]
+domainc=[-2.,2.,2]
 fsolutionc=-1.0316
 def obj_funcc(x):
    """
@@ -116,18 +116,34 @@ ntrials=args.epochs
 #       verbose    : for debug
 
 test=["optuna","skopt","hyperopt","boa","dragonfly"] # list of package to test
-obj_func=obj_funch     # objective function hypercube
-fsolution=fsolutionh   # objective function solution [optional]
-domain=domainh         
+
+
+#obj_func=obj_funch     # objective function hypercube
+#fsolution=fsolutionh   # objective function solution [optional]
+#domain=domainh         
+#dtype=1                
+
+obj_func=obj_funcc     # objective function camaeback
+fsolution=fsolutionc   # objective function solution [optional]
+domain=domainc         
 dtype=1                
-   
 
 #bench=bo_bench(obj_func,dtype,domain,fsolution=fsolution,packages=["skopt"],ntrials=ntrials,nametest="Hyper6D_basinh",host=hostname,
 #                  optimizer="basinhopping",verbose=True)
 #bench.skopt_exe()          # execute only Scikit-Optmize 
 #bench.plot_graph(run=False)  #  plot best values
 #bench.plot_param()
-#quit()
+
+bench1=bo_bench(obj_func,dtype,domain,fsolution=fsolution,packages=test,ntrials=ntrials,nametest="Camelback_basinh",host=hostname,
+                  optimizer="basinhopping",verbose=True)
+#bench1=bo_bench(obj_func,dtype,domain,fsolution=fsolution,packages=test,ntrials=ntrials,nametest="Hyper6D_direct_normalized",host=hostname,
+#                  optimizer="direct",verbose=True)
+bench1.plot_graph()
+bench1.plot_param()
+cc=bench1.getconfig()
+rr=bench1.getresult(namefile="Camelback_basinh.txt")
+print(" ===================================== ")
+quit()
 
 bench=bo_bench(obj_func,dtype,domain,fsolution=fsolution,packages=test,ntrials=ntrials,nametest="Hyper6D_basinh",host=hostname,
                   optimizer="basinhopping",verbose=True)
@@ -136,16 +152,6 @@ bench.plot_param()        # plot parameter graphes
 cc=bench.getconfig()
 rr=bench.getresult(namefile="Hyper6D_basinh.txt")
 
-print(" ===================================== ")
-
-quit()
-
-bench1=bo_bench(obj_func,dtype,domain,fsolution=fsolution,packages=test,ntrials=ntrials,nametest="Hyper6D_direct",host=hostname,
-                  optimizer="direct",verbose=True)
-bench1.plot_graph()
-bench1.plot_param()
-cc=bench1.getconfig()
-rr=bench1.getresult(namefile="Hyper6D_direct.txt")
 print(" ===================================== ")
 
 bench2=bo_bench(obj_func,dtype,domain,fsolution=fsolution,packages=test,ntrials=ntrials,nametest="Hyper6D_cobyla",host=hostname,
