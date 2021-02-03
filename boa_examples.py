@@ -45,8 +45,8 @@ def obj_funcs(x):
 # Euclidian distance in a hypercube benchmark
 size0=1600.
 size1=4800.
-size0=-1.
-size1=1.
+#size0=-1.
+#size1=1.
 Ndimh=6
 domainh=[size0,size1,Ndimh]
 fsolutionh=-1*sqrt(Ndimh*(size1-size0)*(size1-size0))
@@ -116,7 +116,7 @@ ntrials=args.epochs
 #       verbose    : for debug
 
 test=["optuna","skopt","hyperopt","boa","dragonfly"] # list of package to test
-obj_func=obj_funch     # objective function
+obj_func=obj_funch     # objective function hypercube
 fsolution=fsolutionh   # objective function solution [optional]
 domain=domainh         
 dtype=1                
