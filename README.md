@@ -4,7 +4,9 @@
  function: minimize <br />
  type: python class (bo_bench) <br />
  version: 1.0 <br /> <br />
- 
+
+## bo_bench.py
+-- include python class "bo_bench" <br />
 packages:  <br />
         - scikit-optimize - https://scikit-optimize.github.io/stable/  <br />
               name : skopt  <br />
@@ -29,3 +31,5 @@ packages:  <br />
               sampler: TPE (default), Random,  CMA-ES algorithm, NSGA-II "Nro ndominated Sorting Genetic Algorithm II" <br />
               sampler : Gaussian Process, Matern52 kernel, 10 init points <br />
  
+ ## Example
+ boa_examples.py gives an example of bo_bench class utilization
