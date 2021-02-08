@@ -3,4 +3,6 @@
 *.txt
 *.swp
 *.log
+*.tar
+*.gz
 __pycache__

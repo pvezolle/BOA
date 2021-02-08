@@ -28,11 +28,10 @@
               sampler: TPE, Random, Adaptive TPE (default) (require lightgbm package installed)
          - Dragonfly - https://dragonfly-opt.readthedocs.io/en/master/
               name : dragonfly
-              sampler: TPE (default), Random,  CMA-ES algorithm, NSGA-II "Nro ndominated Sorting Genetic Algorithm II"
               sampler: bayesian, random, direct (dividing rectangles), PDOO
          - BOA, bounds
               name : boa
-              sampler: TPE (default), Random,  CMA-ES algorithm, NSGA-II "Nro ndominated Sorting Genetic Algorithm II"
+              sampler: Gaussian Process, PBP
               sampler : Gaussian Process, Matern52 kernel, 10 init points
 
  comment
@@ -90,7 +89,7 @@ class bo_bench:
               sampler: TPE, Random, Adaptive TPE (default) (require lightgbm package installed)
          - Dragonfly - https://dragonfly-opt.readthedocs.io/en/master/
               name : dragonfly
-              sampler: TPE (default), Random,  CMA-ES algorithm, NSGA-II "Nro ndominated Sorting Genetic Algorithm II"
+              sampler: 
               sampler: bayesian, random, direct (dividing rectangles), PDOO
          - BOA, bounds
 
