@@ -63,7 +63,7 @@ import time
 
 class bo_bench:
   def __init__(self,func,dtype,domain,fsolution=-100000.,packages=[],ntrials=10,nametest="BObench",
-               host="",user={},experiment_config={},optimizer="basinhopping",verbose=False):
+               host="",user={},experiment_config={},optimizer="basinhopping",use_scikit=False,verbose=False):
     """ 
        Bayesian Optimization packages comparison 
        space design: bounds domain
@@ -108,6 +108,7 @@ class bo_bench:
         user       : BOA user (dict)
         experiment_config : BOA experiment_config, if None default: GP, Martern52, 10 init point
         optimizer  : BOA optimizer for bouns domain, options: "direct", "cobyla", "basinhopping" 
+        use_scikit  : use scikit-leran instead of BOA GP
         verbose    : for debug
     """
     config={}
@@ -180,6 +181,7 @@ class bo_bench:
 
     # BOA CONFIG
     self.optimizer=optimizer
+    self.use_scikit=use_scikit
     if len(host) != 0:
       self.host=host
     else:
@@ -199,7 +201,8 @@ class bo_bench:
     if self.verbose:
       print(" BOA experiment_config ",self.experiment_config)
 
-    config["BOA_optimizer"]=self.optimizer
+    #config["BOA_optimizer"]=self.optimizer
+    #config["BOA_use_scikit"]=self.use_scikit
     config["host"]=self.host
     self.config=config
 
@@ -260,6 +263,9 @@ class bo_bench:
     print(" \n ****  BO Bench configuration ")
     for keys,values in self.config.items():
        print("{0:18s} : {1} ".format(keys,values))
+    print(" *******************************")
+
+    print(" \n ****  BOA experiment config \n",self.experiment_config)
     print(" \n *******************************")
 
     return self.config
@@ -349,7 +355,7 @@ class bo_bench:
         "scale_y": True,
         "scale_x": False,
         "noise_kernel": False,
-        "use_scikit": False
+        "use_scikit": self.use_scikit
          }},
 
         "optimization_type": "min",
