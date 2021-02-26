@@ -2,7 +2,9 @@
 
 """
 #====================================================================
- Date: January 2021,  Pascal Vezolle
+ Date: February 2021,  Pascal Vezolle
+
+ extention of bo_bench Class, capicity to test BOA numerical library directly (not yet implemented, check test_libnu*.py examples)
 
  Bayesian Optimization packages comparison 
  space design: bounds domain
@@ -34,6 +36,12 @@
               sampler: Gaussian Process, PBP
               sampler : Gaussian Process, Matern52 kernel, 10 init points
 
+         - BOA numerical library
+	      name : boanumlib
+              sampler: Gaussian Process (gp_prof and scikitlearn) 
+              sampler : Gaussian Process, Matern kernel, 10 init points
+          
+            
  comment
 
 #====================================================================

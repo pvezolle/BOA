@@ -1,3 +1,5 @@
+##Test only the numerical library
+
 import numpy as np
 from bayesian_opt.sampling_functions.adaptive_ei_sampler import AdaptiveEISampler as egs
 from sklearn.gaussian_process import GaussianProcessRegressor as gpr

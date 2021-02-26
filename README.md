@@ -32,4 +32,8 @@ packages:  <br />
               sampler : Gaussian Process, Matern52 kernel, 10 init points <br />
  
  ## Example
- boa_examples.py gives an example of bo_bench class utilization
+ boa_examples.py : an example of bo_bench class utilization <br />
+ boa_examples_test_plan_6D.py : example of testing plan, for BOA features/optimizer <br />
+ test_libnu_camelback.py : an example of direct utilization of the numerical library with camelback <br />
+ test_libnu_hypercube.py : an example of direct utilization of the numerical library with euclidian distance
+  

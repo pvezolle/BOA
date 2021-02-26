@@ -109,8 +109,8 @@ ntrials=args.epochs
 #total number of runs= 2 x (4 + 8)         
 #=============================================
 
-test=["boa","dragonfly"] # list of package to test
-#test=["boa"] # list of package to test
+#test=["boa","dragonfly"] # list of package to test
+test=["boa"] # list of package to test
 
 obj_func=obj_funch     # objective function hypercube
 fsolution=fsolutionh   # objective function solution [optional]
